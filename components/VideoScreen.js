@@ -7,7 +7,7 @@ const VideoScreen = () => {
     return (
 
         <View style={styles.post}>
-            <Video source={{uri: "https://www.youtube.com/watch?v=iiEdGHwSKTU"}}
+            <Video source={{uri: "file://C:\Users\maglo\OneDrive\Desktop\Xvv840f2-J4K7909.mp4"}}
             ref={(ref) => {
                 this.player = ref
             }}
