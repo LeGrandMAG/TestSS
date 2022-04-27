@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import Task2 from './components/Task2';
+import Task from './components/Task';
+import Login from './components/Login';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue, set, orderByChild, query } from 'firebase/database';
+import VideoScreen from './components/VideoScreen';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBXzp-KymptToG34X7cHydYtP2m5GvfVeg",
@@ -21,24 +24,23 @@ export default function App() {
 
     
     <ScrollView style={styles.container}>
-      <View>
-      </View>
-      {/* Today's tasks */}
-      <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>
-            Hyundai / KIA / Chevrolet
-        </Text>
-        <View style={{
-          borderBottomColor: "#CAD1DA", 
-          borderBottomWidth: 1 }}>
-
+      <View style={styles.nav}>
+        <View style={styles.navv}>
+          <Image 
+              source={require ('./components/menu.png')}
+              style={styles.img1}
+              />
+              <Image 
+              source={require ('./components/log-out.png')}
+              style={styles.img2}
+              />
         </View>
-        <View style={styles.items}>
-          {/* This is were we will hold all the style */}
-            <Task2/>
-        </View>
-
         
+        <View style={styles.line}>
+          <VideoScreen/>
+        </View>
+      </View>
+      <View>
 
       </View>
     </ScrollView>
@@ -62,6 +64,39 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   items: {},
+  line:{
+    marginTop: 0,
+    borderBottomWidth:1,
+    height: 1,
+    borderColor: 'black'
+  },
+  
+  nav:{
+    marginTop: 30,
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: 10,
+    
+  },
+  img1:{
+
+  },
+  img2:{
+    marginTop: 10,
+
+  },
+  navv:{
+    display: 'flex',
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+
+    margin: 0,
+    marginTop: 20,
+    
+  }
+
 
 
 });
