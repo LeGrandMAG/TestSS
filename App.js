@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     
   },
   img1:{
-
   },
   img2:{
     marginTop: 10,
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
 
-    margin: 0,
+    margin: 10,
     marginTop: 20,
     
   }

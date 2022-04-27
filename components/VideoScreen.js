@@ -7,7 +7,6 @@ const VideoScreen = () => {
     const video = React.useRef(null);
     const secondVideo = React.useRef(null);
     const [status, setStatus] = React.useState({});
-    const [statusSecondVideo, setStatusSecondVideo] = React.useState({});
     return (
 
         <View style={styles.videoContainer}>
@@ -26,15 +25,7 @@ const VideoScreen = () => {
                 <Button style={styles.button} title={status.isLooping ? "Set to not loop": "Set t loop"} onPress={()=> video.current.setIsLoopingAsync(!status.isLooping)}/>
 
             </View>
-            <View>
-                <Button 
-                style={styles.x}
-                onPress={() => {
-                    alert("You called me")
-                }}
-                margin= "10px"
-                title="Press Me"/>
-            </View>
+            
         </View>
 
     )
