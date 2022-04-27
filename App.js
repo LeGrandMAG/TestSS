@@ -7,7 +7,10 @@ import Login from './components/Login';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue, set, orderByChild, query } from 'firebase/database';
 import VideoScreen from './components/VideoScreen';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Page from './components/Page';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBXzp-KymptToG34X7cHydYtP2m5GvfVeg",
@@ -20,32 +23,24 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export default function App() {
-  return (
+const Stack = createNativeStackNavigator();
 
+const MyStack =() => {
+  return (
     <NavigationContainer>
-      <ScrollView style={styles.container}>
-        <View style={styles.nav}>
-          <View style={styles.navv}>
-            <Image 
-                source={require ('./components/menu.png')}
-                style={styles.img1}
-                />
-                <Image 
-                source={require ('./components/log-out.png')}
-                style={styles.img2}
-                />
-                
-          </View>
-          
-          <View style={styles.line}>
-            
-          </View>
-        </View>
-        <View>
-        <VideoScreen/>
-        </View>
-      </ScrollView>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Home"
+          component = {Login}
+          options={{title: 'Welcome'}}
+        />
+
+        <Stack.Screen 
+          name = 'Profile'
+          component= {Page}/>
+        
+        
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
@@ -98,7 +93,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     
   }
-
-
-
 });
+
+
+export default MyStack;
