@@ -34,14 +34,15 @@ export default function App() {
               source={require ('./components/log-out.png')}
               style={styles.img2}
               />
+              
         </View>
         
         <View style={styles.line}>
-          <VideoScreen/>
+          
         </View>
       </View>
       <View>
-
+      <VideoScreen/>
       </View>
     </ScrollView>
   );
