@@ -7,6 +7,7 @@ import Login from './components/Login';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue, set, orderByChild, query } from 'firebase/database';
 import VideoScreen from './components/VideoScreen';
+import { NavigationContainer } from '@react-navigation/native';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBXzp-KymptToG34X7cHydYtP2m5GvfVeg",
@@ -22,29 +23,30 @@ const app = initializeApp(firebaseConfig);
 export default function App() {
   return (
 
-    
-    <ScrollView style={styles.container}>
-      <View style={styles.nav}>
-        <View style={styles.navv}>
-          <Image 
-              source={require ('./components/menu.png')}
-              style={styles.img1}
-              />
-              <Image 
-              source={require ('./components/log-out.png')}
-              style={styles.img2}
-              />
-              
-        </View>
-        
-        <View style={styles.line}>
+    <NavigationContainer>
+      <ScrollView style={styles.container}>
+        <View style={styles.nav}>
+          <View style={styles.navv}>
+            <Image 
+                source={require ('./components/menu.png')}
+                style={styles.img1}
+                />
+                <Image 
+                source={require ('./components/log-out.png')}
+                style={styles.img2}
+                />
+                
+          </View>
           
+          <View style={styles.line}>
+            
+          </View>
         </View>
-      </View>
-      <View>
-      <VideoScreen/>
-      </View>
-    </ScrollView>
+        <View>
+        <VideoScreen/>
+        </View>
+      </ScrollView>
+    </NavigationContainer>
   );
 }
 //StyleSheet
