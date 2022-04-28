@@ -26,74 +26,51 @@ const app = initializeApp(firebaseConfig);
 const Stack = createNativeStackNavigator();
 
 const MyStack =() => {
-  return (
+  return(
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen 
-          name="Home"
-          component = {Login}
-          options={{title: 'Welcome'}}
-        />
+    <Stack.Navigator>
+      
 
+      
+      <Stack.Screen 
+        name  = "로그인" 
+        component={Login}
+        options = {{
+          title: 'LOGIN',
+          headerStyle:{
+            backgroundColor: 'black', },
+          headerTintColor: 'white',
+          headerTitleAlign: 'center'
+
+        }}/>
         <Stack.Screen 
-          name = 'Profile'
-          component= {Page}/>
-        
-        
-      </Stack.Navigator>
-    </NavigationContainer>
+        name  = "Task2" 
+        component={Task2}
+        options = {{
+          title: 'WEPO',
+          headerStyle:{
+            backgroundColor: 'black', },
+          headerTintColor: 'white',
+          headerTitleAlign: 'center'
+          }}/>
+        <Stack.Screen 
+        name  = "Task" 
+        component={Task}
+        options = {{title: 'WEPO'}}/>
+        <Stack.Screen 
+        name  = "Vid" 
+        component={VideoScreen}
+        options = {{title: 'Video'}}/>
+      
+      
+    </Stack.Navigator>
+  </NavigationContainer>
+
+
+
+
+    
   );
 }
-//StyleSheet
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  tasksWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
-    
-
-  },
-  sectionTitle: {
-    color: "black",
-    fontSize: 30,
-    paddingBottom:8,
-    fontWeight: 'bold',
-  },
-  items: {},
-  line:{
-    marginTop: 0,
-    borderBottomWidth:1,
-    height: 1,
-    borderColor: 'black'
-  },
-  
-  nav:{
-    marginTop: 30,
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 10,
-    
-  },
-  img1:{
-  },
-  img2:{
-    marginTop: 10,
-
-  },
-  navv:{
-    display: 'flex',
-    paddingHorizontal: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-
-    margin: 10,
-    marginTop: 20,
-    
-  }
-});
-
 
 export default MyStack;

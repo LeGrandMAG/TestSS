@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useRef, useEffect } from 'react';
-import { TextInput, SafeAreaView, Button, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { TextInput, SafeAreaView, Button, StyleSheet, Text, View, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import { initializeApp } from "firebase/app";
 
 import { getDatabase, ref, onValue, set, orderByChild, query } from 'firebase/database';
@@ -15,7 +15,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-const Task2 = () => {
+
+
+const Task2 = ({navigation}) => {
 
     const text1 = useRef(null);
 
@@ -79,35 +81,68 @@ const Task2 = () => {
     }, [])
 
     return (
-        <View style={{  flex: 1 }}>
-            <StatusBar style="auto" />
-            <SafeAreaView style={{ flex: 1 }}>
-                <View style={{ padding: 15 }}>
-                    <Text style={styles.title}>부품 리스트</Text>
-                </View>
-                <View style={{ backgroundColor: "white", flex: 1 }}>
-                    <View style={{ flexDirection: 'row', padding: 10 }}>
-                        <TextInput style={{ backgroundColor: "#f2f2f2", padding: 5, flex: 1 }}
-                            ref={text1}
-                            onChangeText={text => setText(text)} placeholder="부품을 입력하세요." multiline/>
-
-                        <Button title="추가" onPress={() => saveData()} />
+        <ScrollView>
+            <View style={{  flex: 1 }}>
+                <StatusBar style="auto" />
+                <SafeAreaView style={{ flex: 1 }}>
+                    <View style={{ padding: 15 }}>
+                        <Text style={styles.title}>부품 리스트</Text>
                     </View>
-                    <View>
-                        <FlatList data={data} renderItem={renderItem} style={{ padding: 15 }} />
-                    </View>
-                </View>
+                    <View style={{ backgroundColor: "white", flex: 1 }}>
+                        <View style={{ flexDirection: 'row', padding: 10 }}>
+                            <TextInput style={{ backgroundColor: "#f2f2f2", padding: 5, flex: 1 }}
+                                ref={text1}
+                                onChangeText={text => setText(text)} placeholder="부품을 입력하세요." multiline/>
 
-            </SafeAreaView>
-        </View>
+                                <Button title="추가" onPress={() => saveData()} />
+                        </View>
+                        <View>
+                            <FlatList 
+                            data={data} 
+                            renderItem={renderItem} style={{ padding: 10 }} />
+                        </View>
+                        <View style={styles.xx}>
+                            <TouchableOpacity
+                            style = {styles.butto}
+                            onPress = {() => navigation.navigate("Vid")}>
+                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>동영 상보기</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                            style = {styles.butto}
+                            onPress = {() => navigation.goBack()}>
+                                <Text style={{color:"white"}}>GO BACK</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+                </SafeAreaView>
+            </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
+    butto:{
+        alignItems:'center',
+        backgroundColor:'green',
+        padding:20,
+        width: 200,
+        marginVertical: 10,
+        color:"white",
+    },
     post:{
         margin: 10,
         borderRadius: 3,
         
+    },
+    xx:{
+        position:"relative",
+        bottom: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center'
     },
     titlecont:{
         

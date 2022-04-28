@@ -1,5 +1,18 @@
 import React from "react";
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, FlatList} from 'react-native'
+import Task2 from "./Task2";
+import { initializeApp } from "firebase/app";
+
+import { getDatabase, ref, onValue, set, orderByChild, query } from 'firebase/database';
+const firebaseConfig = {
+    apiKey: "AIzaSyBXzp-KymptToG34X7cHydYtP2m5GvfVeg",
+    authDomain: "cubelab-fc0e2.firebaseapp.com",
+    projectId: "cubelab-fc0e2",
+    storageBucket: "cubelab-fc0e2.appspot.com",
+    messagingSenderId: "613999755778",
+    appId: "1:613999755778:web:4708fb302f633df1531d1b"
+};
+
 
 
 const Task = () => {
@@ -20,8 +33,7 @@ const Task = () => {
 
             </View>
             <View style={styles.postcont}>
-                <Text style={styles.descp}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae in donec pretium volutpat fermentum ut elementum. Eget amet nunc, ut facilisi cras quis integer vivamus. Habitant tellus interdum augue mattis feugiat nec, vel fermentum. Maecenas ullamcorper massa amet commodo ornare commodo odio vel.</Text>
-
+            
             </View>
         </View>
 

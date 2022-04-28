@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import {View, Text, Button, StyleSheet} from 'react-native'
 import {AVPlaybackStatus, Video } from 'expo-av'
 
-const VideoScreen = () => {
+const VideoScreen = ({navigation}) => {
     const video = React.useRef(null);
     const secondVideo = React.useRef(null);
     const [status, setStatus] = React.useState({});
@@ -21,8 +21,10 @@ const VideoScreen = () => {
             onPlaybackStatusUpdate={setStatus}
             />
             <View style={styles.buttonContainer}>
-                <Button style={styles.button} title="Play from 5s" onPress={() => video.current.playFromPositionAsync(5000)} />
-                <Button style={styles.button} title={status.isLooping ? "Set to not loop": "Set t loop"} onPress={()=> video.current.setIsLoopingAsync(!status.isLooping)}/>
+                <Button style={styles.button} title="10초부터 프레이" onPress={() => video.current.playFromPositionAsync(10000)} />
+                
+                <Button style={styles.button} title={status.isLooping ? "로프 remove": "로프 설정"} onPress={()=> video.current.setIsLoopingAsync(!status.isLooping)}/>
+                <Button style={styles.button} title="메모장으로" onPress={()=> navigation.navigate('Task2') }/>
 
             </View>
             
@@ -36,7 +38,8 @@ const styles = StyleSheet.create({
 
     videoContainer:{
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
     x:{
         margin: 20,
@@ -46,7 +49,8 @@ const styles = StyleSheet.create({
     buttonContainer:{
         justifyContent: 'space-between',
         flexDirection: 'column',
-        alignContent: 'space-between'
+        alignContent: 'space-between',
+        height: 150,
     },
     button:{
         marginBottom: 10

@@ -1,5 +1,5 @@
 import React from "react"
-import { Image, Button, ScrollView, Text, View, TextInput } from 'react-native';
+import { Image, Button, ScrollView, StyleSheet, TouchableOpacity,Text, View, TextInput } from 'react-native';
 
 
 const logo = {
@@ -9,18 +9,18 @@ const logo = {
     
   };
 
-const Login = () => (
+const Login = ({navigation}) => (
     <View
     style={{
         height: 690,
-        borderWidth: 1,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'white'
     }}
     >
         <Image 
-            source={logo}
+            source={require('./cubelab.png')}
             style={{
                 marginBottom:100,
             }}
@@ -43,7 +43,7 @@ const Login = () => (
                     textAlign:'center',
                     borderRadius: 8,
                     borderWidth:2,
-                    borderColor: 'blue',
+                    borderColor: 'rgb(20,100,200)',
                     width:300,
                     height: 45,
                     marginBottom:20
@@ -52,6 +52,7 @@ const Login = () => (
                 placeholder="사용자 이름"
             />
             <TextInput
+                secureTextEntry={true}
                 style={{
                     paddingVertical: 8,
                     paddingHorizontal:10,
@@ -59,31 +60,56 @@ const Login = () => (
                     borderRadius: 8,
                     borderWidth:2,
                     height: 45,
-                    borderColor: 'blue',
+                    borderColor: 'rgb(20,100,200)',
                     width:300,
                     marginBottom:20
                     
                 }}
+                
                 placeholder="비밀번호"
             />
             <Text
-                style={{
-                    backgroundColor:'rgb(200,200,200)',
-                    paddingHorizontal:40,
-                    paddingVertical: 10,
-                    height: 40,
-                    marginBottom: 10,
-                    borderRadius: 5,
-                    textAlignVertical: 'center'
-                }}
-            >
+            style={{
+                backgroundColor:'rgb(20,100,200)',
+                paddingHorizontal:40,
+                paddingVertical: 10,
+                height: 40,
+                color: 'white',
+                textAlign: 'center',
+                marginBottom: 10,
+                borderRadius: 5,
+                textAlignVertical: 'center',
+                width:200}} > 
                 로그인
             </Text>
+                
             <Text>
                 Forgot Password?
             </Text>
+            <TouchableOpacity
+                    style = {styles.butto}
+                    onPress = {() => navigation.navigate("Task2")}>
+                    <Text style={styles.text}>메모에 가기</Text>
+            </TouchableOpacity>
+            
         </View>
     </View>
 )
+const styles = StyleSheet.create({
+    butto:{
+        alignItems:'center',
+        backgroundColor:'rgb(20,100,200)',
+        padding:2,
+        height:50,
+        justifyContent:'center',
+        width: 200,
+        marginVertical: 10,
+        color:"white",
+        borderRadius: 10,
+    },
+    text:{
+        color: 'white'
+    }
+});
 
 export default Login
