@@ -56,7 +56,7 @@ const MyStack =() => {
         <Stack.Screen 
         name  = "Task" 
         component={Task}
-        options = {{title: 'WEPO'}}/>
+        options = {{title: 'Task'}}/>
         <Stack.Screen 
         name  = "Vid" 
         component={VideoScreen}
