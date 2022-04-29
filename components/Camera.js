@@ -1,17 +1,13 @@
-import React, {useState,useEffect} from "react"
-import { Image, Button, ScrollView, StyleSheet, TouchableOpacity,Text, View, TextInput } from 'react-native';
+import React, {useState,useEffect } from "react"
+import { StyleSheet, TouchableOpacity,Text, View} from 'react-native';
 import {Camera} from 'expo-camera';
-const logo = {
-    uri: 'https://reactnative.dev/img/tiny_logo.png',
-    width: 80,
-    height: 80,
-    
-  };
 
-const Cam = ({navigation}) => {
+
+export default function Cam(){
 
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
+    const [light, setLight] = useState(Camera.Constants.FlashMode.on)
 
     useEffect(() => {
         (async () => {
@@ -28,58 +24,50 @@ const Cam = ({navigation}) => {
     }
 
     return( 
-        <Camera
-            
-                    style={styles.cam}>
-                    <View
+        <View style = {{ flex: 1}}>
+            <Camera
+                ratio="16:9"
+                style={styles.cam}
+                type = {type}
+                flashMode = {light}>
+                <View
                     style={styles.camButtonContainer}>
-                        
                     
-                        <TouchableOpacity
-                            style={styles.camButton}
-                            onPress = {() => {
-                                setType(
-                                    type === Camera.Constants.Type.back
+                
+                    <TouchableOpacity
+                        style={styles.camButton}
+                        onPress = {() => {
+                            setType(
+                                type === Camera.Constants.Type.back
 
-                                    ?Camera.Constants.Type.front
-                                        : Camera.Constants.Type.back
-                                );
-                            }}>
-                            <Text
-                                style={styles.camText}>
-                                Camera
-                            </Text>
+                                ?Camera.Constants.Type.front
+                                    : Camera.Constants.Type.back
+                            );
+                        }}>
+                        <Text
+                            style={styles.camText}>
+                            Flip Camera
+                        </Text>
 
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.camButton}
-                            onPress = {() => {
-                                setType(
-                                    type === Camera.Constants.FlashMode.on 
-                                    ? Camera.Constants.FlashMode.off : Camera.Constants.FlashMode.on
-                                );
-                            }}>
-                            <Text
-                                style={styles.camText}>
-                                Flash
-                            </Text>
-
-                        </TouchableOpacity>
-                    </View>
-        </Camera>);
+                    </TouchableOpacity>
+                    
+                </View>
+            </Camera>
+        </View>);
 }
 const styles = StyleSheet.create({
     cam:{
         flex:1,
         justifyContent: 'center',
-        alignItems: 'center'
-        
+        alignItems: 'center',        
     },
     camButtonContainer:{
         position: 'absolute',
         bottom: 20,
         display:'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flex: 1,
+        
     },
     camButton:{
         margin: 10,
@@ -112,4 +100,3 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Cam
