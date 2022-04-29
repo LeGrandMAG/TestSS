@@ -9,21 +9,23 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-community/viewpager": "5.0.11",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
     "expo": "~44.0.2",
     "expo-av": "~10.2.0",
+    "expo-camera": "~12.1.2",
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "~1.2.0",
     "firebase": "^9.6.11",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-camera": "^4.2.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "react-native-video": "^5.2.0",
     "react-native-video-player": "^0.12.0",
+    "react-native-viewpager": "^0.2.13",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {

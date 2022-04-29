@@ -10,7 +10,8 @@ import VideoScreen from './components/VideoScreen';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Page from './components/Page';
-
+import { Camera } from 'expo-camera';
+import Cam from './components/Camera';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBXzp-KymptToG34X7cHydYtP2m5GvfVeg",
@@ -61,6 +62,10 @@ const MyStack =() => {
         name  = "Vid" 
         component={VideoScreen}
         options = {{title: 'Video'}}/>
+        <Stack.Screen 
+        name  = "Cam" 
+        component={Cam}
+        options = {{title: 'Camera'}}/>
       
       
     </Stack.Navigator>

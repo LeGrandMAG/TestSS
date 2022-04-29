@@ -105,7 +105,17 @@ const Task2 = ({navigation}) => {
                             <TouchableOpacity
                             style = {styles.butto}
                             onPress = {() => navigation.navigate("Vid")}>
-                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>동영 상보기</Text>
+                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>동영상보기</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                            style = {styles.butto}
+                            onPress = {() => navigation.navigate("Cam")}>
+                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>AR 동영상</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                            style = {styles.butto}
+                            onPress = {() => navigation.navigate("Vid")}>
+                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>VR 동영상</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                             style = {styles.butto}
@@ -124,7 +134,7 @@ const Task2 = ({navigation}) => {
 const styles = StyleSheet.create({
     butto:{
         alignItems:'center',
-        backgroundColor:'green',
+        backgroundColor:'rgb(20,100,200)',
         padding:20,
         width: 200,
         marginVertical: 10,
