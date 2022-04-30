@@ -105,7 +105,7 @@ const Task2 = ({navigation}) => {
                             <TouchableOpacity
                             style = {styles.butto}
                             onPress = {() => navigation.navigate("Vid")}>
-                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>동영상보기</Text>
+                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>동영상 보기</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                             style = {styles.butto}

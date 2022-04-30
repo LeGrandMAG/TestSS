@@ -21,10 +21,10 @@ const VideoScreen = ({navigation}) => {
             onPlaybackStatusUpdate={setStatus}
             />
             <View style={styles.buttonContainer}>
-                <Button style={styles.button} title="10초부터 프레이" onPress={() => video.current.playFromPositionAsync(10000)} />
+                <Button style={styles.button} title="10초부터 플레이" onPress={() => video.current.playFromPositionAsync(10000)} />
                 
-                <Button style={styles.button} title={status.isLooping ? "로프 remove": "로프 설정"} onPress={()=> video.current.setIsLoopingAsync(!status.isLooping)}/>
-                <Button style={styles.button} title="메모장으로" onPress={()=> navigation.navigate('Task2') }/>
+                <Button style={styles.button} title={status.isLooping ? "반복 재생 OFF": "반복 재생 ON"} onPress={()=> video.current.setIsLoopingAsync(!status.isLooping)}/>
+                <Button style={styles.button} title="메모장" onPress={()=> navigation.navigate('Task2') }/>
 
             </View>
             
