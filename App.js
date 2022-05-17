@@ -48,7 +48,7 @@ const MyStack =() => {
         name  = "Task2" 
         component={Task2}
         options = {{
-          title: 'WEPO',
+          title: 'CATEGORY',
           headerStyle:{
             backgroundColor: 'black', },
           headerTintColor: 'white',
