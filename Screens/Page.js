@@ -27,11 +27,11 @@ const Page = () => {
           <View style={styles.nav}>
 
               <Image 
-                  source={require ('./menu.png')}
+                  source={require ('../components/menu.png')}
                   style={styles.img1}
                   />
                   <Image 
-                  source={require ('./log-out.png')}
+                  source={require ('../components/log-out.png')}
                   style={styles.img2}
                   />
           </View>

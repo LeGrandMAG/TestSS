@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react"
 import { Image, Button, ScrollView, StyleSheet, TouchableOpacity,Text, View, TextInput } from 'react-native';
 import {Camera} from 'expo-camera';
+import { Dimensions } from "react-native";
 const logo = {
     uri: 'https://reactnative.dev/img/tiny_logo.png',
     width: 80,
@@ -30,7 +31,7 @@ const Login = ({navigation}) => {
     return( 
         <View
         style={{
-            height: 690,
+            height: Dimensions.get('window').height,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -38,7 +39,7 @@ const Login = ({navigation}) => {
         }}
         >
             <Image 
-                source={require('./cubelab.png')}
+                source={require('../components/cubelab.png')}
                 style={{
                     marginBottom:100,
                 }}

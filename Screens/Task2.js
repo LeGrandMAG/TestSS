@@ -15,7 +15,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-
+const data = [
+    {
+        id: "1",
+        title: "Category 1",
+        video: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+        screen: 'Video1'
+    }
+]
 
 const Task2 = ({navigation}) => {
 
@@ -23,6 +30,8 @@ const Task2 = ({navigation}) => {
 
     const [text, setText] = useState('');
     const [data, setData] = useState('');
+
+
 
     function delData(key) {
         const db = getDatabase();
@@ -48,9 +57,15 @@ const Task2 = ({navigation}) => {
     const renderItem = ({ item }) => {
         return (
             <View style={{ padding: 15, borderBottomColor: '#aaa', borderBottomWidth: 1, flexDirection: 'row', }}>
+                <TouchableOpacity 
+                style={{flex:1}}
+                onPress= {() => navigation.navigate("Vid")}
+                >
                 <Text style={{ flex: 1, fontSize: 16 }}>
                     {item.data}
                 </Text>
+
+                </TouchableOpacity>
                 <Button title="삭제" color='red' onPress={() => delData(item.key)} />
             </View>
         )
@@ -101,28 +116,7 @@ const Task2 = ({navigation}) => {
                             data={data} 
                             renderItem={renderItem} style={{ padding: 10 }} />
                         </View>
-                        <View style={styles.xx}>
-                            <TouchableOpacity
-                            style = {styles.butto}
-                            onPress = {() => navigation.navigate("Vid")}>
-                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>동영상 보기</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                            style = {styles.butto}
-                            onPress = {() => navigation.navigate("Cam")}>
-                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>AR 동영상</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                            style = {styles.butto}
-                            onPress = {() => navigation.navigate("Vid")}>
-                                <Text style={{color:"white", fontSize: 20, fontWeight: 'bold'}}>VR 동영상</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                            style = {styles.butto}
-                            onPress = {() => navigation.goBack()}>
-                                <Text style={{color:"white"}}>GO BACK</Text>
-                            </TouchableOpacity>
-                        </View>
+                        
                     </View>
 
                 </SafeAreaView>

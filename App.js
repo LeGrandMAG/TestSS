@@ -1,17 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useRef, useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
-import Task2 from './components/Task2';
-import Task from './components/Task';
-import Login from './components/Login';
+import Task2 from './Screens/Task2';
+import Task from './Screens/Task';
+import Login from './Screens/Login';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue, set, orderByChild, query } from 'firebase/database';
-import VideoScreen from './components/VideoScreen';
+import VideoScreen from './Screens/VideoScreen';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Page from './components/Page';
+import Page from './Screens/Page';
 import { Camera } from 'expo-camera';
-import Cam from './components/Camera';
+import Cam from './Screens/Camera';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import EditVideo from './Screens/EditVideo';
+import Category from './Screens/Category';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBXzp-KymptToG34X7cHydYtP2m5GvfVeg",
@@ -27,8 +31,24 @@ const app = initializeApp(firebaseConfig);
 const Stack = createNativeStackNavigator();
 
 const MyStack =() => {
+
   return(
     <NavigationContainer>
+      <Stack.Navigator>
+        
+        <Stack.Screen
+        name = "Category List"
+        component={Category}
+        options={{
+          //headerShown:false,
+          title: "Category List"
+
+        }}/>
+        
+
+      </Stack.Navigator>
+    </NavigationContainer>
+    /*<NavigationContainer>
     <Stack.Navigator>
       
 
@@ -37,6 +57,7 @@ const MyStack =() => {
         name  = "로그인" 
         component={Login}
         options = {{
+          headerShown:false,
           title: 'LOGIN',
           headerStyle:{
             backgroundColor: 'black', },
@@ -69,7 +90,7 @@ const MyStack =() => {
       
       
     </Stack.Navigator>
-  </NavigationContainer>
+  </NavigationContainer> */
 
 
 
