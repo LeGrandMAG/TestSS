@@ -1,24 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, KeyboardAvoidingView, Platform, Button, Dimensions, TouchableOpacity, FlatList } from 'react-native';
-import { ApplicationProvider, ListItem, Divider, List} from '@ui-kitten/components'
+import React, { useState } from 'react';
+import { StyleSheet,  Dimensions } from 'react-native';
+import { ListItem, Divider, List, Text} from '@ui-kitten/components'
+import { View } from 'react-native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
-import { NavigationContainer, StackActions, useFocusEffect, useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-//import { Camera } from 'expo-camera';
-//import Cam from './components/Camera';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { async } from '@firebase/util';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TextInput } from 'react-native';
+import { WhiteBalance } from 'expo-camera/build/Camera.types';
 
 
 export default function Category(){
     const [notes, setNotes] = useState([])
+    const [links, setLinks] = useState([])
     const navigation = useNavigation()
     useFocusEffect(
         React.useCallback(() =>{
             getNotes()
+            getLinks()
         },  [])
     )
 
@@ -29,24 +28,33 @@ export default function Category(){
         })
     }
 
+    const getLinks = () =>{
+        AsyncStorage.getItem("LINKS").then((links) =>{
+            setLinks(JSON.parse(links))
+        })
+    }
+
     const renderItem = ({ item, index}) => (
         <ListItem
             title= {<Text category ="h5"> {item}</Text>}
-            onPress={() => navigation.navigate("Note",{
+            onPress={() => navigation.navigate("VVideo",{
                 singleNote: item
             })}
-            
+        />
+        )
+
+    const renderLink = ({ li, index}) => (
+        <ListItem
+        title= {<Text category="h6">{li}</Text> }
         />
     )
   
   return(
     <SafeAreaView style={{flexDirection:'column', alignItems:'center',}} >
-        <List
-            style={styles.container}
-            data={notes.reverse}
-            ItemSeparatorComponent={Divider}
-            renderItem={renderItem}
-        />
+        <Text style={styles.title} category="h1">
+            Notes
+        </Text>
+        
     </SafeAreaView>
 
 
@@ -55,21 +63,32 @@ export default function Category(){
     
   );
 }
-
 const styles = StyleSheet.create({
+	container: {
+		fontSize: 20,
+        width: Dimensions.get("window").width,
+        backgroundColor: 'white'
+	},
 
-    container:{
-        backgroundColor: 'white',
-        width: Dimensions.get("window").width
-    },
-    AddVideo:{
-        flexDirection:'column',
-        justifyContent: 'center',
-        alignItems:'center',
-        marginTop: 20,
-        borderWidth: 2,
-        width: Dimensions.get('window').width,
-        height: 500
-        
-    }
+	item: {
+		marginVertical: 4,
+        backgroundColor: 'white'
+	},
+	title: {
+		textAlign: "center",
+		marginTop: 50,
+        color: 'black'
+	},
+	notes: {
+		fontSize: 24
+	}
 })
+
+/*
+<List
+            style={styles.container}
+            data={notes.reverse()}
+            ItemSeparatorComponent={Divider}
+            renderItem={renderItem}
+        />
+*/

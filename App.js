@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import Task2 from './Screens/Task2';
 import Task from './Screens/Task';
 import Login from './Screens/Login';
+import * as eva from "@eva-design/eva"
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, onValue, set, orderByChild, query } from 'firebase/database';
 import VideoScreen from './Screens/VideoScreen';
@@ -15,45 +17,41 @@ import Cam from './Screens/Camera';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import EditVideo from './Screens/EditVideo';
 import Category from './Screens/Category';
+import { ApplicationProvider, BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
+import VVideo from './Screens/Video';
 
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBXzp-KymptToG34X7cHydYtP2m5GvfVeg",
-    authDomain: "cubelab-fc0e2.firebaseapp.com",
-    projectId: "cubelab-fc0e2",
-    storageBucket: "cubelab-fc0e2.appspot.com",
-    messagingSenderId: "613999755778",
-    appId: "1:613999755778:web:4708fb302f633df1531d1b"
-};
-
-const app = initializeApp(firebaseConfig);
 
 const Stack = createNativeStackNavigator();
 
-const MyStack =() => {
+
+
+export default function App (){
 
   return(
-    <NavigationContainer>
-      <Stack.Navigator>
-        
-        <Stack.Screen
-        name = "Category List"
-        component={Category}
-        options={{
-          //headerShown:false,
-          title: "Category List"
+    <ApplicationProvider>
 
-        }}/>
-        
+    <Category/>
+  </ApplicationProvider>
 
-      </Stack.Navigator>
-    </NavigationContainer>
-    /*<NavigationContainer>
-    <Stack.Navigator>
-      
 
-      
-      <Stack.Screen 
+
+
+    
+  );
+}
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: "#fff",
+		alignItems: "center",
+		justifyContent: "center"
+	}
+})
+
+
+/*
+<Stack.Screen 
         name  = "로그인" 
         component={Login}
         options = {{
@@ -87,16 +85,4 @@ const MyStack =() => {
         name  = "Cam" 
         component={Cam}
         options = {{title: 'Camera'}}/>
-      
-      
-    </Stack.Navigator>
-  </NavigationContainer> */
-
-
-
-
-    
-  );
-}
-
-export default MyStack;
+*/

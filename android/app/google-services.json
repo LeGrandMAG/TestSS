@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "56316519729",
+    "project_id": "cubelab-e61f3",
+    "storage_bucket": "cubelab-e61f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56316519729:android:c1854a2b9de4089ddd7c10",
+        "android_client_info": {
+          "package_name": "com.testss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56316519729-0mjdgo9sqqnud3p0omu5vbv4s518h1eo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.testss",
+            "certificate_hash": "54f12d44df9fb654e5fb89fdcae42449147a5b26"
+          }
+        },
+        {
+          "client_id": "56316519729-6t90b3gshjqsj8r58o6jsh71snb7057n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ9_ErBJbYZc0V8Z7JPTtlgdgBxLkFxeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56316519729-6t90b3gshjqsj8r58o6jsh71snb7057n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
